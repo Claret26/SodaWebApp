@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://www.gstatic.com/firebasejs/3.5.0/firebase.js"></script>
+        <script src="js/jquery-2.1.1.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700|Merriweather:400italic,400' rel='stylesheet' type='text/css'>
+
+
+
+        <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+        <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+
+        <script src="js/modernizr.js"></script> <!-- Modernizr -->
+        <!-- Latest compiled and minified CSS -->
+
+        <title>Pide tu almuerzo</title>
+    </head>
+    <body>
+    <label id="labelSemana" class="mode">Semana 1</label><input type="image" src="img/next.png" alt="Submit" id="btnSemana"class=" circular"/>
+        <div class="cd-projects-container">
+            <ul class="cd-projects-previews">
+                <li id="lunespantalla">
+                    <a href="#0">
+                        <div class="cd-project-title">
+                            <h2>Lunes</h2>
+                            <br><br><br><br><br><br><br>
+                            <label class="negrita zise">Desayuno: </label>
+                            <br><br>
+                            <p id="idNombreDesayunoL">...</p>
+                            <br><br>
+                            <label class="negrita">Pedidos: <button class="trans circulara" id="idPedidosDesayunoL" data-toggle="tooltip" title="Preciona para ver pedidos">0</button></label>
+                            <br><br><br><br>
+                            <label class="negrita zise">Almuerzo:</label>
+                            <br><br>
+                            <p id="idNombreAlmuerzoL">....</p>
+                            <br><br>
+                            <label class="negrita">Pedidos: <button class="trans circulara" id="idPedidosAlmuerzoL" data-toggle="tooltip" title="Preciona para ver pedidos">0</button></label>
+                        </div>
+                    </a>
+                </li>
+                <li id="martespantalla"> 
+                    <a href="#0">
+                        <div class="cd-project-title">
+                            <h2>Martes</h2>
+                            <br><br><br><br><br><br><br>
+                            <label class="negrita zise">Desayuno: </label>
+                            <br><br>
+                            <p id="idNombreDesayunoM">...</p>
+                            <br><br>
+                            <label class="negrita">Pedidos: <button class="trans circulara" id="idPedidosDesayunoM" data-toggle="tooltip" title="Preciona para ver pedidos">0</button></label>
+                            <br><br><br><br>
+                            <label class="negrita zise">Almuerzo:</label>
+                            <br><br>
+                            <p id="idNombreAlmuerzoM">....</p>
+                            <br><br>
+                            <label class="negrita">Pedidos: <button class="trans circulara" id="idPedidosAlmuerzoM" data-toggle="tooltip" title="Preciona para ver pedidos">0</button></label>
+                        </div>
+                    </a>
+                </li>
+
+                <li id="miercolespantalla">
+                    <a href="#0">
+                        <div class="cd-project-title">
+                            <h2>Miercoles</h2>
+                            <br><br><br><br><br><br><br>
+                            <label class="negrita zise">Desayuno: </label>
+                            <br><br>
+                            <p id="idNombreDesayunoMI">...</p>
+                            <br><br>
+                            <label class="negrita">Pedidos: <button class="trans circulara" id="idPedidosDesayunoI" data-toggle="tooltip" title="Preciona para ver pedidos">0</button></label>
+                            <br><br><br><br>
+                            <label class="negrita zise">Almuerzo:</label>
+                            <br><br>
+                            <p id="idNombreAlmuerzoMI">....</p>
+                            <br><br>
+                            <label class="negrita">Pedidos: <button class="trans circulara" id="idPedidosAlmuerzoI" data-toggle="tooltip" title="Preciona para ver pedidos">0</button></label>
+                        </div>
+                    </a>
+                </li>
+
+                <li id="juevespantalla">
+                    <a href="#0">
+                        <div class="cd-project-title">
+                            <h2>Jueves</h2>
+                            <br><br><br><br><br><br><br>
+                            <label class="negrita zise">Desayuno: </label>
+                            <br><br>
+                            <p id="idNombreDesayunoJ">...</p>
+                            <br><br>
+                            <label class="negrita">Pedidos: <button class="trans circulara" id="idPedidosDesayunoJ" data-toggle="tooltip" title="Preciona para ver pedidos">0</button></label>
+                            <br><br><br><br>
+                            <label class="negrita zise">Almuerzo:</label>
+                            <br><br>
+                            <p id="idNombreAlmuerzoJ">....</p>
+                            <br><br>
+                            <label class="negrita">Pedidos: <button class="trans circulara" id="idPedidosAlmuerzoJ" data-toggle="tooltip" title="Preciona para ver pedidos">0</button></label>
+                        </div>
+                    </a>
+                </li>
+
+                <li id="viernespantalla">
+                    <a href="#0">
+                        <div class="cd-project-title">
+                            <h2>Viernes</h2>
+                            <br><br><br><br><br><br><br>
+                            <label class="negrita zise">Desayuno: </label>
+                            <br><br>
+                            <p id="idNombreDesayunoV">...</p>
+                            <br><br>
+                            <label class="negrita">Pedidos: <button class="trans circulara" id="idPedidosDesayunoV" data-toggle="tooltip" title="Preciona para ver pedidos">0</button></label>
+                            <br><br><br><br>
+                            <label class="negrita zise">Almuerzo:</label>
+                            <br><br>
+                            <p id="idNombreAlmuerzoV">....</p>
+                            <br><br>
+                            <label class="negrita">Pedidos: <button class="trans circulara" id="idPedidosAlmuerzoV" data-toggle="tooltip" title="Preciona para ver pedidos">0</button></label>
+                        </div>
+                    </a>
+                </li>
+
+                <li id="sabadopantalla">
+                    <a href="#0">
+                        <div class="cd-project-title">
+                            <h2>Sabado</h2>
+                            <br><br><br><br><br><br><br>
+                            <label class="negrita zise">Desayuno: </label>
+                            <br><br>
+                            <p id="idNombreDesayunoS">...</p>
+                            <br><br>
+                            <label class="negrita">Pedidos: <button class="trans circulara" id="idPedidosDesayunoS" data-toggle="tooltip" title="Preciona para ver pedidos">0</button></label>
+                            <br><br><br><br>
+                            <label class="negrita zise">Almuerzo:</label>
+                            <br><br>
+                            <p id="idNombreAlmuerzoS">....</p>
+                            <br><br>
+                            <label class="negrita">Pedidos: <button class="trans circulara" id="idPedidosAlmuerzoS" data-toggle="tooltip" title="Preciona para ver pedidos">0</button></label>
+                        </div>
+                    </a>
+                </li>
+            </ul> <!-- .cd-projects-previews -->
+
+            <ul class="cd-projects">
+                <li>
+                    <div class="preview-image">
+                        <div class="cd-project-title">
+                            <h2>Lunes</h2>
+                        </div> 
+                        <a class="cd-nav-trigger cd-text-replace" href="#">Menu<span aria-hidden="true" class="cd-icon"></span></a>
+                        <div class="col-xs-12 col-sm- col-md-10 col-sm-offset-1 col-md-offset-1 bajar">
+                            <div class="col-xs-3 col-sm-5 col-md-5 clase izq">
+                                <div class="btn-group" role="group" aria-label="...">
+                                    <p class="negrita letras">Tiempo de comida:</p>
+                                    <button type="button" class="btn btn-default " id="btnDesayunoId">Desayuno</button>
+                                    <button type="button" class="btn btn-default" id="btnAlmuerzoId">Almuerzo</button>
+                                </div> </br></br></br>
+                                <p class="negrita letras"> Platillo principal</p>
+                                <div  class="input-group">
+                                    <input type="text" class="form-control" id="ppl" placeholder="Arroz">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" id="btnl" type="button">+</button>
+                                    </span>
+                                </div>
+                                <div>
+                                    <div class="col-xs-12 col-sm-3 col-md-3">
+                                        <p class= "letras">Precio:</p>
+                                    </div>
+                                    <div class="input-group col-xs-12 col-sm-6 col-md-6">
+                                        <input type="text" class="form-control" id="pppl" placeholder="Ej:1.850">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" id="btnpl" type="button">Agregar</button>
+                                        </span>
+                                    </div>
+                                </div><br><br>
+                                <p class="negrita letras"> Opcionales:</p>
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="pol" placeholder="Platillo u opcion">
+                                        <input type="text" class="form-control" id="ppol" placeholder="Precio">
+                                        <input type="button" class="btn btn-default" value="+" id="btnpol">
+                                    </div>
+
+                                </form>
+
+                            </div>
+                            <div id="vertical-bar" class="col-sm-1 col-md-1 "></div>
+                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                </br></br></br><br>
+                                <h4 class="letras">Desayuno <button class="trans" id="pedidosld" data-toggle="tooltip" title="Numero de Pedidos"> 0</button></h4><br><br>
+                                <p class="negrita letras">Platillo principal</p>
+                                <textarea  class="form-control trans" rows="4" id="ild" placeholder=".........     No componentes    ........."></textarea>
+                                <p class="negrita letras">Opcionales</p>
+                                <textarea class="form-control trans" rows="4" id="iold" placeholder="........     No componentes    ........."></textarea>
+                            </div>
+                            <div class="col-xs-3 col-sm-4 col-md-3 izqA">
+                                </br></br></br><br>
+                                <h4 class="letras">Almuerzo <button class="trans" id="pedidosla" data-toggle="tooltip" title="Numero de Pedidos"> 0</button></h4><br><br>
+                                <p class="negrita letras">Platillo principal</p>
+                                <textarea  class="form-control trans" rows="4" id="ila" placeholder=".........     No componentes    ........."></textarea>
+                                <p class="negrita letras">Opcionales</p>
+                                <textarea class="form-control trans" rows="4" id="iola" placeholder="........     No componentes    ........."></textarea>
+                            </div>
+                            <!--    <div class="col-xs-3 col-sm-3 col-md-3">
+                                            </br></br></br><br>
+                                            <h4>Cena</h4><br><br>
+                                            <p class="negrita">Platillo principal</p>
+                                            <textarea  class="form-control trans" rows="4" id="ingredientes" placeholder=".........     No componentes    ........."></textarea>
+                                            <p class="negrita">Opcionales</p>
+                                            <textarea class="form-control trans" rows="4" id="ingredientesO" placeholder="........     No componentes    ........."></textarea>
+                                    </div>-->
+                        </div>
+
+                    </div>
+                </li>
+
+                <!--BACK-->
+                <li>
+                    <div class="preview-image">
+                        <div class="cd-project-title">
+                            <h2>Martes</h2>
+                        </div> 
+                        <a class="cd-nav-trigger cd-text-replace" href="#">Menu<span aria-hidden="true" class="cd-icon"></span></a>
+                        <div class="col-xs-12 col-sm- col-md-10 col-sm-offset-1 col-md-offset-1 bajar">
+                            <div class="col-xs-3 col-sm-5 col-md-5 clase izq">
+                                <div class="btn-group" role="group" aria-label="...">
+                                    <p class="negrita letras">Tiempo de comida:</p>
+                                    <button type="button" class="btn btn-default " id="btnDesayunoIdm">Desayuno</button>
+                                    <button type="button" class="btn btn-default" id="btnAlmuerzoIdm">Almuerzo</button>
+                                </div> </br></br></br>
+                                <p class="negrita letras"> Platillo principal</p>
+                                <div  class="input-group">
+                                    <input type="text" class="form-control" id="ppm" placeholder="Arroz">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-secondary" id="btnm" type="button">+</button>
+                                    </span>
+                                </div>
+                                <div>
+                                    <div class="col-xs-12 col-sm-3 col-md-3">
+                                        <p class= "letras">Precio:</p>
+                                    </div>
+                                    <div class="input-group col-xs-12 col-sm-6 col-md-6">
+                                        <input type="text" class="form-control" id="pppm" placeholder="Ej:1.850">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-secondary" id="btnpm" type="button">Agregar</button>
+                                        </span>
+                                    </div>
+                                </div><br><br>
+                                <p class="negrita letras"> Opcionales:</p>
+                                 <form class="form-inline">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="pom" placeholder="Platillo u opcion">
+                                        <input type="text" class="form-control" id="ppom" placeholder="Precio">
+                                        <input type="button" class="btn btn-default" value="+" id="btnpom">
+                                    </div>
+
+                                </form>
+                            </div>
+                            <div id="vertical-bar" class="col-sm-1 col-md-1 "></div>
+                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                </br></br></br><br>
+                                <h4 class="letras">Desayuno <button class="trans" id="pedidosmd" data-toggle="tooltip" title="Numero de Pedidos"> 0</button></h4><br><br>
+                                <p class="negrita letras">Platillo principal</p>
+                                <textarea  class="form-control trans" rows="4" id="imd" placeholder=".........     No componentes    ........."></textarea>
+                                <p class="negrita letras">Opcionales</p>
+                                <textarea class="form-control trans" rows="4" id="iomd" placeholder="........     No componentes    ........."></textarea>
+                            </div>
+                            <div class="col-xs-3 col-sm-4 col-md-3 izqA">
+                                </br></br></br><br>
+                                <h4 class="letras">Almuerzo <button class="trans" id="pedidosma" data-toggle="tooltip" title="Numero de Pedidos"> 0</button></h4><br><br>
+                                <p class="negrita letras">Platillo principal</p>
+                                <textarea  class="form-control trans" rows="4" id="ima" placeholder=".........     No componentes    ........."></textarea>
+                                <p class="negrita letras">Opcionales</p>
+                                <textarea class="form-control trans" rows="4" id="ioma" placeholder="........     No componentes    ........."></textarea>
+                            </div>
+                            <!--    <div class="col-xs-3 col-sm-3 col-md-3">
+                                            </br></br></br><br>
+                                            <h4>Cena</h4><br><br>
+                                            <p class="negrita">Platillo principal</p>
+                                            <textarea  class="form-control trans" rows="4" id="ingredientes" placeholder=".........     No componentes    ........."></textarea>
+                                            <p class="negrita">Opcionales</p>
+                                            <textarea class="form-control trans" rows="4" id="ingredientesO" placeholder="........     No componentes    ........."></textarea>
+                                    </div>-->
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="preview-image">
+                        <div class="cd-project-title">
+                            <h2>Miercoles</h2>
+                        </div> 
+                        <a class="cd-nav-trigger cd-text-replace" href="#">Menu<span aria-hidden="true" class="cd-icon"></span></a>
+                        <div class="col-xs-12 col-sm- col-md-10 col-sm-offset-1 col-md-offset-1 bajar">
+                            <div class="col-xs-3 col-sm-5 col-md-5 clase izq">
+                                <div class="btn-group" role="group" aria-label="...">
+                                    <p class="negrita letras">Tiempo de comida:</p>
+                                    <button type="button" class="btn btn-default " id="btnDesayunoIdmi">Desayuno</button>
+                                    <button type="button" class="btn btn-default" id="btnAlmuerzoIdmi">Almuerzo</button>
+                                </div> </br></br></br>
+                                <p class="negrita letras"> Platillo principal</p>
+                                <div  class="input-group">
+                                    <input type="text" class="form-control" id="ppmi" placeholder="Arroz">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-secondary" id="btnmi" type="button">+</button>
+                                    </span>
+                                </div>
+                                <div>
+                                    <div class="col-xs-12 col-sm-3 col-md-3">
+                                        <p class= "letras">Precio:</p>
+                                    </div>
+                                    <div class="input-group col-xs-12 col-sm-6 col-md-6">
+                                        <input type="text" class="form-control" id="pppmi" placeholder="Ej:1.850">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-secondary" id="btnpmi" type="button">Agregar</button>
+                                        </span>
+                                    </div>
+                                </div><br><br>
+                                <p class="negrita letras"> Opcionales:</p>
+                                 <form class="form-inline">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="pomi" placeholder="Platillo u opcion">
+                                        <input type="text" class="form-control" id="ppomi" placeholder="Precio">
+                                        <input type="button" class="btn btn-default" value="+" id="btnpomi">
+                                    </div>
+
+                                </form>
+                            </div>
+                            <div id="vertical-bar" class="col-sm-1 col-md-1 "></div>
+                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                </br></br></br><br>
+                                <h4 class="letras">Desayuno <button class="trans" id="pedidosmid" data-toggle="tooltip" title="Numero de Pedidos"> 0</button></h4><br><br>
+                                <p class="negrita letras">Platillo principal</p>
+                                <textarea  class="form-control trans" rows="4" id="imid" placeholder=".........     No componentes    ........."></textarea>
+                                <p class="negrita letras">Opcionales</p>
+                                <textarea class="form-control trans" rows="4" id="iomid" placeholder="........     No componentes    ........."></textarea>
+                            </div>
+                            <div class="col-xs-3 col-sm-4 col-md-3 izqA">
+                                </br></br></br><br>
+                                <h4 class="letras">Almuerzo <button class="trans" id="pedidosmia" data-toggle="tooltip" title="Numero de Pedidos"> 0</button></h4><br><br>
+                                <p class="negrita letras">Platillo principal</p>
+                                <textarea  class="form-control trans" rows="4" id="imia" placeholder=".........     No componentes    ........."></textarea>
+                                <p class="negrita letras">Opcionales</p>
+                                <textarea class="form-control trans" rows="4" id="iomia" placeholder="........     No componentes    ........."></textarea>
+                            </div>
+                            <!--    <div class="col-xs-3 col-sm-3 col-md-3">
+                                            </br></br></br><br>
+                                            <h4>Cena</h4><br><br>
+                                            <p class="negrita">Platillo principal</p>
+                                            <textarea  class="form-control trans" rows="4" id="ingredientes" placeholder=".........     No componentes    ........."></textarea>
+                                            <p class="negrita">Opcionales</p>
+                                            <textarea class="form-control trans" rows="4" id="ingredientesO" placeholder="........     No componentes    ........."></textarea>
+                                    </div>-->
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="preview-image">
+                        <div class="cd-project-title">
+                            <h2>Jueves</h2>
+                        </div> 
+                        <a class="cd-nav-trigger cd-text-replace" href="#">Menu<span aria-hidden="true" class="cd-icon"></span></a>
+                        <div class="col-xs-12 col-sm- col-md-10 col-sm-offset-1 col-md-offset-1 bajar">
+                            <div class="col-xs-3 col-sm-5 col-md-5 clase izq">
+                                <div class="btn-group" role="group" aria-label="...">
+                                    <p class="negrita letras">Tiempo de comida:</p>
+                                    <button type="button" class="btn btn-default " id="btnDesayunoIdj">Desayuno</button>
+                                    <button type="button" class="btn btn-default" id="btnAlmuerzoIdj">Almuerzo</button>
+                                </div> </br></br></br>
+                                <p class="negrita letras"> Platillo principal</p>
+                                <div  class="input-group">
+                                    <input type="text" class="form-control" id="ppj" placeholder="Arroz">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-secondary" id="btnj" type="button">+</button>
+                                    </span>
+                                </div>
+                                <div>
+                                    <div class="col-xs-12 col-sm-3 col-md-3">
+                                        <p class= "letras">Precio:</p>
+                                    </div>
+                                    <div class="input-group col-xs-12 col-sm-6 col-md-6">
+                                        <input type="text" class="form-control" id="pppj" placeholder="Ej:1.850">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-secondary" id="btnpj" type="button">Agregar</button>
+                                        </span>
+                                    </div>
+                                </div><br><br>
+                                <p class="negrita letras"> Opcionales:</p>
+                                 <form class="form-inline">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="poj" placeholder="Platillo u opcion">
+                                        <input type="text" class="form-control" id="ppoj" placeholder="Precio">
+                                        <input type="button" class="btn btn-default" value="+" id="btnpoj">
+                                    </div>
+
+                                </form>
+                            </div>
+                            <div id="vertical-bar" class="col-sm-1 col-md-1 "></div>
+                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                </br></br></br><br>
+                                <h4 class="letras">Desayuno <button class="trans" id="pedidosjd" data-toggle="tooltip" title="Numero de Pedidos"> 0</button></h4><br><br>
+                                <p class="negrita letras">Platillo principal</p>
+                                <textarea  class="form-control trans" rows="4" id="ijd" placeholder=".........     No componentes    ........."></textarea>
+                                <p class="negrita letras">Opcionales</p>
+                                <textarea class="form-control trans" rows="4" id="iojd" placeholder="........     No componentes    ........."></textarea>
+                            </div>
+                            <div class="col-xs-3 col-sm-4 col-md-3 izqA">
+                                </br></br></br><br>
+                                <h4 class="letras">Almuerzo <button class="trans" id="pedidosja" data-toggle="tooltip" title="Numero de Pedidos"> 0</button></h4><br><br>
+                                <p class="negrita letras">Platillo principal</p>
+                                <textarea  class="form-control trans" rows="4" id="ija" placeholder=".........     No componentes    ........."></textarea>
+                                <p class="negrita letras">Opcionales</p>
+                                <textarea class="form-control trans" rows="4" id="ioja" placeholder="........     No componentes    ........."></textarea>
+                            </div>
+                            <!--    <div class="col-xs-3 col-sm-3 col-md-3">
+                                            </br></br></br><br>
+                                            <h4>Cena</h4><br><br>
+                                            <p class="negrita">Platillo principal</p>
+                                            <textarea  class="form-control trans" rows="4" id="ingredientes" placeholder=".........     No componentes    ........."></textarea>
+                                            <p class="negrita">Opcionales</p>
+                                            <textarea class="form-control trans" rows="4" id="ingredientesO" placeholder="........     No componentes    ........."></textarea>
+                                    </div>-->
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="preview-image">
+                        <div class="cd-project-title">
+                            <h2>Viernes</h2>
+                        </div> 
+                        <a class="cd-nav-trigger cd-text-replace" href="#">Menu<span aria-hidden="true" class="cd-icon"></span></a>
+                        <div class="col-xs-12 col-sm- col-md-10 col-sm-offset-1 col-md-offset-1 bajar">
+                            <div class="col-xs-3 col-sm-5 col-md-5 clase izq">
+                                <div class="btn-group" role="group" aria-label="...">
+                                    <p class="negrita letras">Tiempo de comida:</p>
+                                    <button type="button" class="btn btn-default " id="btnDesayunoIdv">Desayuno</button>
+                                    <button type="button" class="btn btn-default" id="btnAlmuerzoIdv">Almuerzo</button>
+                                </div> </br></br></br>
+                                <p class="negrita letras"> Platillo principal</p>
+                                <div  class="input-group">
+                                    <input type="text" class="form-control" id="ppv" placeholder="Arroz">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-secondary" id="btnv" type="button">+</button>
+                                    </span>
+                                </div>
+                                <div>
+                                    <div class="col-xs-12 col-sm-3 col-md-3">
+                                        <p class= "letras">Precio:</p>
+                                    </div>
+                                    <div class="input-group col-xs-12 col-sm-6 col-md-6">
+                                        <input type="text" class="form-control" id="pppv" placeholder="Ej:1.850">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-secondary" id="btnpv" type="button">Agregar</button>
+                                        </span>
+                                    </div>
+                                </div><br><br>
+                                <p class="negrita letras"> Opcionales:</p>
+                                 <form class="form-inline">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="pov" placeholder="Platillo u opcion">
+                                        <input type="text" class="form-control" id="ppov" placeholder="Precio">
+                                        <input type="button" class="btn btn-default" value="+" id="btnpov">
+                                    </div>
+
+                                </form>
+                            </div>
+                            <div id="vertical-bar" class="col-sm-1 col-md-1 "></div>
+                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                </br></br></br><br>
+                                <h4 class="letras">Desayuno <button class="trans" id="pedidosvd" data-toggle="tooltip" title="Numero de Pedidos"> 0</button></h4><br><br>
+                                <p class="negrita letras">Platillo principal</p>
+                                <textarea  class="form-control trans" rows="4" id="ivd" placeholder=".........     No componentes    ........."></textarea>
+                                <p class="negrita letras">Opcionales</p>
+                                <textarea class="form-control trans" rows="4" id="iovd" placeholder="........     No componentes    ........."></textarea>
+                            </div>
+                            <div class="col-xs-3 col-sm-4 col-md-3 izqA">
+                                </br></br></br><br>
+                                <h4 class="letras">Almuerzo <button class="trans" id="pedidosva" data-toggle="tooltip" title="Numero de Pedidos"> 0</button></h4><br><br>
+                                <p class="negrita letras">Platillo principal</p>
+                                <textarea  class="form-control trans" rows="4" id="iva" placeholder=".........     No componentes    ........."></textarea>
+                                <p class="negrita letras">Opcionales</p>
+                                <textarea class="form-control trans" rows="4" id="iova" placeholder="........     No componentes    ........."></textarea>
+                            </div>
+                            <!--    <div class="col-xs-3 col-sm-3 col-md-3">
+                                            </br></br></br><br>
+                                            <h4>Cena</h4><br><br>
+                                            <p class="negrita">Platillo principal</p>
+                                            <textarea  class="form-control trans" rows="4" id="ingredientes" placeholder=".........     No componentes    ........."></textarea>
+                                            <p class="negrita">Opcionales</p>
+                                            <textarea class="form-control trans" rows="4" id="ingredientesO" placeholder="........     No componentes    ........."></textarea>
+                                    </div>-->
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="preview-image">
+                        <div class="cd-project-title">
+                            <h2>Sabado</h2>
+                        </div> 
+                        <a class="cd-nav-trigger cd-text-replace" href="#">Menu<span aria-hidden="true" class="cd-icon"></span></a>
+                        <div class="col-xs-12 col-sm- col-md-10 col-sm-offset-1 col-md-offset-1 bajar">
+                            <div class="col-xs-3 col-sm-5 col-md-5 clase izq">
+                                <div class="btn-group" role="group" aria-label="...">
+                                    <p class="negrita letras">Tiempo de comida:</p>
+                                    <button type="button" class="btn btn-default " id="btnDesayunoIds">Desayuno</button>
+                                    <button type="button" class="btn btn-default" id="btnAlmuerzoIds">Almuerzo</button>
+                                </div> </br></br></br>
+                                <p class="negrita letras"> Platillo principal</p>
+                                <div  class="input-group">
+                                    <input type="text" class="form-control" id="pps" placeholder="Arroz">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-secondary" id="btns" type="button">+</button>
+                                    </span>
+                                </div>
+                                <div>
+                                    <div class="col-xs-12 col-sm-3 col-md-3">
+                                        <p class= "letras">Precio:</p>
+                                    </div>
+                                    <div class="input-group col-xs-12 col-sm-6 col-md-6">
+                                        <input type="text" class="form-control" id="ppps" placeholder="Ej:1.850">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-secondary" id="btnps" type="button">Agregar</button>
+                                        </span>
+                                    </div>
+                                </div><br><br>
+                                <p class="negrita letras"> Opcionales:</p>
+                                 <form class="form-inline">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="pos" placeholder="Platillo u opcion">
+                                        <input type="text" class="form-control" id="ppos" placeholder="Precio">
+                                        <input type="button" class="btn btn-default" value="+" id="btnpos">
+                                    </div>
+
+                                </form>
+                            </div>
+                            <div id="vertical-bar" class="col-sm-1 col-md-1 "></div>
+                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                </br></br></br><br>
+                                <h4 class="letras">Desayuno <button class="trans" id="pedidossd" data-toggle="tooltip" title="Numero de Pedidos"> 0</button></h4><br><br>
+                                <p class="negrita letras">Platillo principal</p>
+                                <textarea  class="form-control trans" rows="4" id="isd" placeholder=".........     No componentes    ........."></textarea>
+                                <p class="negrita letras">Opcionales</p>
+                                <textarea class="form-control trans" rows="4" id="iosd" placeholder="........     No componentes    ........."></textarea>
+                            </div>
+                            <div class="col-xs-3 col-sm-4 col-md-3 izqA">
+                                </br></br></br><br>
+                                <h4 class="letras">Almuerzo <button class="trans" id="pedidossa" data-toggle="tooltip" title="Numero de Pedidos"> 0</button></h4><br><br>
+                                <p class="negrita letras">Platillo principal</p>
+                                <textarea  class="form-control trans" rows="4" id="isa" placeholder=".........     No componentes    ........."></textarea>
+                                <p class="negrita letras">Opcionales</p>
+                                <textarea class="form-control trans" rows="4" id="iosa" placeholder="........     No componentes    ........."></textarea>
+                            </div>
+                            <!--    <div class="col-xs-3 col-sm-3 col-md-3">
+                                            </br></br></br><br>
+                                            <h4>Cena</h4><br><br>
+                                            <p class="negrita">Platillo principal</p>
+                                            <textarea  class="form-control trans" rows="4" id="ingredientes" placeholder=".........     No componentes    ........."></textarea>
+                                            <p class="negrita">Opcionales</p>
+                                            <textarea class="form-control trans" rows="4" id="ingredientesO" placeholder="........     No componentes    ........."></textarea>
+                                    </div>-->
+                        </div>
+                    </div>
+                </li>
+            </ul> <!-- .cd-projects -->
+        </div> <!-- .cd-project-container -->
+
+ <!--modales-->
+        <div class="modal fade" tabindex="-1" role="dialog" id="mymodal">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closenodal1"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Pedidos</h4>
+              </div>
+              <div class="modal-body">
+                <table class="table table-hover" id="tablepedidos" style="color: #000">
+                 <tr style="color: #000">
+                    <th style="font-weight:bold">Usuario</th>
+                    <th style="font-weight:bold">Plato</th>
+                    <th style="font-weight:bold">Cantidad</th>
+                    <th style="font-weight:bold">Total</th>
+                    <th style="font-weight:bold">Comentarios</th>
+                    <th style="font-weight:bold">Estado</th>
+                 </tr>
+                 
+                </table>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="closemodal">Close</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+         <div class="modal fade" tabindex="-1" role="dialog" id="mymodal2">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closenodal1"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Pedidos</h4>
+              </div>
+              <div class="modal-body">
+                <table class="table table-hover" id="tablepedidos2" style="color: #000">
+                 <tr style="color: #000">
+                    <th style="font-weight:bold">Usuario</th>
+                    <th style="font-weight:bold">Plato</th>
+                    <th style="font-weight:bold">Cantidad</th>
+                    <th style="font-weight:bold">Total</th>
+                    <th style="font-weight:bold">Comentarios</th>
+                    <th style="font-weight:bold">Estado</th>
+                 </tr>
+                 
+                </table>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="closemodal">Close</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        <script src="js/main.js"></script> <!-- Resource jQuery -->
+        <script src="js/javas.js"></script>
+    </body>
+</html>
+
+<!--cd-nav-trigger cd-text-replace-->
